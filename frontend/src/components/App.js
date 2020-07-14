@@ -37,7 +37,7 @@ class App extends Component {
                 {this.state.data.map(bowl => {
                     return (
                         <li key={bowl.id}>
-                            {bowl.name} - {bowl.style}
+                            {bowl.name} - {bowl.style} - {bowl.comment}
                         </li>
                     );
                 })}
