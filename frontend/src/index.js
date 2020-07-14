@@ -1,1 +1,1 @@
-import App from "./components/AppWithHooks";
+import App from "./components/App";

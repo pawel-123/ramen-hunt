@@ -1,52 +1,48 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, { Component, useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import Header from "./Header";
+import Bowl from "./Bowl";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            loaded: false,
-            placeholder: "Loading"
-        };
-    }
+function App() {
 
-    componentDidMount() {
+    const [bowls, setBowls] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    const [placeholder, setPlaceholder] = useState("Loading");
+
+    useEffect(() => {
+        getBowls();
+    }, []);
+
+    const getBowls = () => {
         fetch("api/bowl")
             .then(response => {
                 if (response.status > 400) {
-                    return this.setState(() => {
-                        return { placeholder: "Something went wrong!" };
-                    });
+                    setPlaceholder("Something went wrong!")
                 }
                 return response.json();
             })
             .then(data => {
-                this.setState(() => {
-                    return {
-                        data,
-                        loaded: true
-                    };
-                });
+                setBowls(data)
+                setLoaded(true)
             });
     }
 
-    render() {
-        return (
-            <ul>
-                {this.state.data.map(bowl => {
-                    return (
-                        <li key={bowl.id}>
-                            {bowl.name} - {bowl.style} - {bowl.comment}
-                        </li>
-                    );
-                })}
-            </ul>
-        );
-    }
+    return (
+        <div>
+            <Header />
+            {bowls.map(bowl => (
+                <Bowl
+                    key={bowl.id}
+                    name={bowl.name}
+                    style={bowl.style}
+                    comment={bowl.comment}
+                />
+            ))}
+        </div>
+    );
 }
 
 export default App;
 
 const container = document.getElementById("app");
-render(<App />, container);
+ReactDOM.render(<App />, container);
