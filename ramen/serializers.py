@@ -5,4 +5,4 @@ from .models import Bowl
 class BowlSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bowl
-        fields = ('id', 'name', 'style', 'comment')
+        fields = ('id', 'name', 'style', 'comment', 'rating')
