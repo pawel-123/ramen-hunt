@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Header from "./Header";
 import Bowl from "./Bowl";
+import BowlForm from "./BowlForm";
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
 
     useEffect(() => {
         getBowls();
-    }, []);
+    }, [bowls]);
 
     const getBowls = () => {
         // bowls ordered by descending rating
@@ -31,6 +32,7 @@ function App() {
     return (
         <div>
             <Header />
+            <BowlForm />
             {bowls.map(bowl => (
                 <Bowl
                     key={bowl.id}
