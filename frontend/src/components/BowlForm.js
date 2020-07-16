@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react"
 
-function BowlForm({ onLoadedChange }) {
+function BowlForm({ setLoaded }) {
     const [name, setName] = useState("")
     const [style, setStyle] = useState("")
     const [rating, setRating] = useState("")
     const [comment, setComment] = useState("")
 
     const handleLoaded = useCallback(() => {
-        onLoadedChange(false)
-    }, [onLoadedChange])
+        setLoaded(false)
+    }, [setLoaded])
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -45,26 +45,40 @@ function BowlForm({ onLoadedChange }) {
                     placeholder="Bowl name"
                     onChange={e => setName(e.target.value)}
                 /><br />
-                <select onChange={e => setStyle(e.target.value)}>
-                    <option value="Miso">Miso</option>
-                    <option value="Shio">Shio</option>
-                    <option value="Shoyu">Shoyu</option>
-                    <option value="Tonkotsu">Tonkotsu</option>
-                    <option value="Other">Other</option>
-                </select><br />
+                <label>
+                    Bowl style
+                    <select
+                        name="style"
+                        value={style}
+                        onChange={e => setStyle(e.target.value)}>
+                        <option value="Miso">Miso</option>
+                        <option value="Shio">Shio</option>
+                        <option value="Shoyu">Shoyu</option>
+                        <option value="Tonkotsu">Tonkotsu</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </label><br />
+
+                <label>
+                    Bowl rating
+                    <select
+                        name="rating"
+                        value={rating}
+                        onChange={e => setRating(e.target.value)}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </label><br />
                 {/* <input
-                    name="style"
-                    value={style}
-                    placeholder="Bowl style"
-                    onChange={e => setStyle(e.target.value)}
-                /><br /> */}
-                <input
                     name="rating"
                     value={rating}
                     placeholder="Bowl rating"
                     onChange={e => setRating(e.target.value)}
-                /><br />
-                <input
+                /><br /> */}
+                <textarea
                     name="comment"
                     value={comment}
                     placeholder="Bowl comment"

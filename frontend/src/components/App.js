@@ -34,7 +34,7 @@ function App() {
         <div>
             <Header />
             <BowlForm
-                onLoadedChange={setLoaded}
+                setLoaded={setLoaded}
             />
             {bowls.map(bowl => (
                 <Bowl
