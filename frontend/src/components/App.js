@@ -10,9 +10,10 @@ function App() {
     const [loaded, setLoaded] = useState(false);
     const [placeholder, setPlaceholder] = useState("Loading");
 
+    // gets bowls when mounting and when bowls change
     useEffect(() => {
         getBowls();
-    }, [bowls]);
+    }, [loaded]);
 
     const getBowls = () => {
         // bowls ordered by descending rating
@@ -32,7 +33,9 @@ function App() {
     return (
         <div>
             <Header />
-            <BowlForm />
+            <BowlForm
+                onLoadedChange={setLoaded}
+            />
             {bowls.map(bowl => (
                 <Bowl
                     key={bowl.id}

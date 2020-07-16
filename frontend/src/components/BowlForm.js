@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 
-function BowlForm() {
+function BowlForm({ onLoadedChange }) {
     const [name, setName] = useState("")
     const [style, setStyle] = useState("")
     const [rating, setRating] = useState("")
     const [comment, setComment] = useState("")
+
+    const handleLoaded = useCallback(() => {
+        onLoadedChange(false)
+    }, [onLoadedChange])
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -21,11 +25,14 @@ function BowlForm() {
             })
         })
 
-        // resets the form values
+        // resets form values
         setName("")
         setStyle("")
         setRating("")
         setComment("")
+
+        // reset loaded
+        handleLoaded()
     }
 
     return (
@@ -38,12 +45,19 @@ function BowlForm() {
                     placeholder="Bowl name"
                     onChange={e => setName(e.target.value)}
                 /><br />
-                <input
+                <select onChange={e => setStyle(e.target.value)}>
+                    <option value="Miso">Miso</option>
+                    <option value="Shio">Shio</option>
+                    <option value="Shoyu">Shoyu</option>
+                    <option value="Tonkotsu">Tonkotsu</option>
+                    <option value="Other">Other</option>
+                </select><br />
+                {/* <input
                     name="style"
                     value={style}
                     placeholder="Bowl style"
                     onChange={e => setStyle(e.target.value)}
-                /><br />
+                /><br /> */}
                 <input
                     name="rating"
                     value={rating}
