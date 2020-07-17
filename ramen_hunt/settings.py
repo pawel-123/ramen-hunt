@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # added apps
+    # my apps
     'ramen.apps.RamenConfig',  # activates ramen app
+    'users.apps.UsersConfig',  # activates users app
     'rest_framework',  # activates Django REST Framework
     'frontend',  # activates the frontend app
 ]
@@ -123,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = 'index'

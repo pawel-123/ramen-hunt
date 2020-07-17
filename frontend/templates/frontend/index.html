@@ -8,9 +8,15 @@
 </head>
 
 <body>
-    <div id="app">
-        <!-- React will load here -->
-    </div>
+    {% if user.is_authenticated %}
+        <a href="{% url "users:logout" %}">Logout</a>
+        <div id="app">
+            <!-- React will load here -->
+        </div>
+    {% else %}
+        <a href="{% url "users:login" %}">Login</a>
+        <a href="{% url "users:register" %}">Register</a>
+    {% endif %}
 </body>
 {% load static %}
 <script src="{% static "frontend/main.js" %}"></script>
