@@ -1,3 +1,96 @@
-h1 {
-    color: red;
+#app {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #2d3748;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    background-color: #f6e05e;
+    border-bottom: 4px solid #2d3748;
+}
+
+header > img {
+    height: 5rem;
+    margin-right: 4rem;
+}
+
+.form-component {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #edf2f7;
+    border-bottom: 2px solid #cbd5e0;
+}
+
+form {
+    width: 70%;
+    max-width: 48rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-item {
+    width: 100%;
+    height: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 70%;
+    height: 100%;
+}
+
+form > button {
+    align-self: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border: 2px solid #2d3748;
+    background-color: #48bb78;
+    padding: 0.5rem 1rem;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: white;
+    font-size: 1rem;
+}
+
+select {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.bowl-list {
+    background-color: #edf2f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bowl-list > h3 {
+    align-self: center;
+}
+
+.bowl-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7fafc;
+    margin: 1rem 0;
+    width: 70%;
+    max-width: 48rem;
+    border: 4px solid #f6e05e;
+    border-radius: 0.5rem;
+}
+
+.bowl-item > p {
+    font-style: italic;
 }

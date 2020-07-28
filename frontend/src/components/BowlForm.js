@@ -36,19 +36,26 @@ function BowlForm({ setLoaded }) {
     }
 
     return (
-        <div>
+        <div className="form-component">
             <h3>Add a new bowl</h3>
             <form onSubmit={handleSubmit}>
-                <input
-                    name="name"
-                    value={name}
-                    placeholder="Bowl name"
-                    onChange={e => setName(e.target.value)}
-                /><br />
-                <label>
-                    Bowl style
+                <div className="form-item">
+                    <label className="form-label" htmlFor="name">Name</label>
+                    <input
+                        name="name"
+                        id="name"
+                        className="form-input"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-item">
+                    <label className="form-label" htmlFor="style">Style</label>
                     <select
                         name="style"
+                        id="style"
+                        className="form-input"
                         value={style}
                         onChange={e => setStyle(e.target.value)}>
                         <option value="Miso">Miso</option>
@@ -57,12 +64,14 @@ function BowlForm({ setLoaded }) {
                         <option value="Tonkotsu">Tonkotsu</option>
                         <option value="Other">Other</option>
                     </select>
-                </label><br />
+                </div>
 
-                <label>
-                    Bowl rating
+                <div className="form-item">
+                    <label className="form-label" htmlFor="rating">Rating</label>
                     <select
                         name="rating"
+                        id="rating"
+                        className="form-input"
                         value={rating}
                         onChange={e => setRating(e.target.value)}>
                         <option value="1">1</option>
@@ -71,19 +80,19 @@ function BowlForm({ setLoaded }) {
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                </label><br />
-                {/* <input
-                    name="rating"
-                    value={rating}
-                    placeholder="Bowl rating"
-                    onChange={e => setRating(e.target.value)}
-                /><br /> */}
-                <textarea
-                    name="comment"
-                    value={comment}
-                    placeholder="Bowl comment"
-                    onChange={e => setComment(e.target.value)}
-                /><br />
+                </div>
+
+                <div className="form-item">
+                    <label className="form-label" htmlFor="comment">Comment</label>
+                    <input
+                        name="comment"
+                        id="comment"
+                        className="form-input"
+                        value={comment}
+                        onChange={e => setComment(e.target.value)}
+                    />
+                </div>
+
                 <button type="submit">Add bowl</button>
             </form>
         </div>

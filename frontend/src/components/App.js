@@ -32,21 +32,23 @@ function App() {
     }
 
     return (
-        <div>
+        <div className="apptest">
             <Header />
-            <h1>Testing CSS</h1>
             <BowlForm
                 setLoaded={setLoaded}
             />
-            {bowls.map(bowl => (
-                <Bowl
-                    key={bowl.id}
-                    name={bowl.name}
-                    style={bowl.style}
-                    comment={bowl.comment}
-                    rating={bowl.rating}
-                />
-            ))}
+            <div className="bowl-list">
+                <h3>Highest rated bowls</h3>
+                {bowls.map(bowl => (
+                    <Bowl
+                        key={bowl.id}
+                        name={bowl.name}
+                        style={bowl.style}
+                        comment={bowl.comment}
+                        rating={bowl.rating}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
