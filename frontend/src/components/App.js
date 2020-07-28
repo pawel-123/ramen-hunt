@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Header from "./Header";
 import Bowl from "./Bowl";
 import BowlForm from "./BowlForm";
+import '../index.css';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
     return (
         <div>
             <Header />
+            <h1>Testing CSS</h1>
             <BowlForm
                 setLoaded={setLoaded}
             />
