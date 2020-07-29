@@ -8,5 +8,4 @@ class BowlSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bowl
         fields = ('id', 'name', 'style', 'comment',
-                  'rating', 'author')
-        depth = 1
+                  'rating', 'author', 'date_added')

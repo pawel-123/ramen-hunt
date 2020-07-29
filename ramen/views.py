@@ -8,4 +8,4 @@ class BowlListCreate(generics.ListCreateAPIView):
     serializer_class = BowlSerializer
     # allows filtering DRF API by rating
     filter_backends = [filters.OrderingFilter]
-    ordering_fields = ['rating']
+    ordering_fields = ['date_added']

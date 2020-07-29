@@ -18,7 +18,7 @@ function App() {
 
     const getBowls = () => {
         // bowls ordered by descending rating
-        fetch("api/bowl/?ordering=-rating")
+        fetch("api/bowl/?ordering=-date_added")
             .then(response => {
                 if (response.status > 400) {
                     setPlaceholder("Something went wrong!")
