@@ -94,3 +94,8 @@ select {
 .bowl-item > p {
     font-style: italic;
 }
+
+input, select{
+    width:100%;
+    box-sizing:border-box;
+  }

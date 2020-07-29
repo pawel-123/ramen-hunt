@@ -3,8 +3,8 @@ import Cookies from 'js-cookie'
 
 function BowlForm({ setLoaded }) {
     const [name, setName] = useState("")
-    const [style, setStyle] = useState("")
-    const [rating, setRating] = useState("")
+    const [style, setStyle] = useState("Miso")
+    const [rating, setRating] = useState("1")
     const [comment, setComment] = useState("")
 
     const handleLoaded = useCallback(() => {
