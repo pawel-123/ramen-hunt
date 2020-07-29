@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
+import Cookies from 'js-cookie'
 
 function BowlForm({ setLoaded }) {
     const [name, setName] = useState("")
@@ -13,10 +14,14 @@ function BowlForm({ setLoaded }) {
     function handleSubmit(event) {
         event.preventDefault()
 
+        const csrftoken = Cookies.get('csrftoken')
         // posts form data to DRF, which saves it in database 
         fetch("api/bowl/", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                'X-CSRFToken': csrftoken
+            },
             body: JSON.stringify({
                 "name": name,
                 "style": style,
