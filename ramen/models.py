@@ -1,9 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Bowl(models.Model):
     name = models.CharField(max_length=50)
     comment = models.TextField()
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
 
     # Style choices
     TONKOTSU = 'Tonkotsu'

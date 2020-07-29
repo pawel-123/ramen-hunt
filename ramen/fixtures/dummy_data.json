@@ -6,7 +6,8 @@
             "name": "Tonkotsu ramen at Cocolo in Berlin",
             "style": "Tonkotsu",
             "comment": "Great bowl! Rich broth, firm noodles, amazing pork belly",
-            "rating": 5
+            "rating": 5,
+            "author": 1
         }
     },
     {
@@ -16,7 +17,8 @@
             "name": "Stamina Ramen at Makoto in Berlin",
             "style": "Tonkotsu",
             "comment": "Decent bowl. Spicy broth, lots of pork belly slices and vegetables. Thin noodles, good but not firm enough.",
-            "rating": 4
+            "rating": 4,
+            "author": 1
         }
     },
     {
@@ -26,7 +28,8 @@
             "name": "Sapporo Miso Ramen at Takumi Nine in Berlin",
             "style": "Miso",
             "comment": "Very interesting. Rich miso broth with tasty, firm noodles. Tender chicken thigh and baby corn toppings. A bit pricey for Berlin.",
-            "rating": 4
+            "rating": 4,
+            "author": 1
         }
     },
     {
@@ -36,7 +39,8 @@
             "name": "Tonkotsu Ramen at Makoto in Berlin",
             "style": "Tonkotsu",
             "comment": "Very poor bowl, pretty bland broth, and dry chashu. Avoid!",
-            "rating": 2
+            "rating": 2,
+            "author": 1
         }
     },
     {
@@ -46,7 +50,8 @@
             "name": "Tan Tan Ramen at Cocolo in Berlin",
             "style": "Miso",
             "comment": "Very nice! Rich but not too heavy broth, decent amount of spicyness.",
-            "rating": 4
+            "rating": 4,
+            "author": 1
         }
     }
 ]

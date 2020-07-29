@@ -26,7 +26,8 @@ function BowlForm({ setLoaded }) {
                 "name": name,
                 "style": style,
                 "rating": rating,
-                "comment": comment
+                "comment": comment,
+                "author": window.django.user.id
             })
         })
 
