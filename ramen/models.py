@@ -6,7 +6,7 @@ class Bowl(models.Model):
     name = models.CharField(max_length=50)
     comment = models.TextField()
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, blank=True)
+        User, on_delete=models.CASCADE)
 
     # Style choices
     TONKOTSU = 'Tonkotsu'

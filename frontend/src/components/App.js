@@ -46,6 +46,7 @@ function App() {
                         style={bowl.style}
                         comment={bowl.comment}
                         rating={bowl.rating}
+                        username={bowl.author.username}
                     />
                 ))}
             </div>
