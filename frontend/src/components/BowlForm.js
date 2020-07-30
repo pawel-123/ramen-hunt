@@ -7,6 +7,7 @@ function BowlForm({ setLoaded }) {
     const [rating, setRating] = useState("1")
     const [comment, setComment] = useState("")
 
+    // sets loaded to false after form submission so that bowl list reloads
     const handleLoaded = useCallback(() => {
         setLoaded(false)
     }, [setLoaded])
@@ -14,6 +15,7 @@ function BowlForm({ setLoaded }) {
     function handleSubmit(event) {
         event.preventDefault()
 
+        // gets CSRF token from cookies
         const csrftoken = Cookies.get('csrftoken')
         // posts form data to DRF, which saves it in database 
         fetch("api/bowl/", {
@@ -27,14 +29,15 @@ function BowlForm({ setLoaded }) {
                 "style": style,
                 "rating": rating,
                 "comment": comment,
+                // gets user id that's exposed in index.html via window
                 "author": window.django.user.id
             })
         })
 
-        // resets form values
+        // resets form values to empty and defaults
         setName("")
-        setStyle("")
-        setRating("")
+        setStyle("Miso")
+        setRating("1")
         setComment("")
 
         // reset loaded
@@ -45,6 +48,7 @@ function BowlForm({ setLoaded }) {
         <div className="form-component">
             <h3>Add a new bowl</h3>
             <form onSubmit={handleSubmit}>
+                {/* bowl name */}
                 <div className="form-item">
                     <label className="form-label" htmlFor="name">Name</label>
                     <input
@@ -56,6 +60,7 @@ function BowlForm({ setLoaded }) {
                     />
                 </div>
 
+                {/* bowl style */}
                 <div className="form-item">
                     <label className="form-label" htmlFor="style">Style</label>
                     <select
@@ -72,6 +77,7 @@ function BowlForm({ setLoaded }) {
                     </select>
                 </div>
 
+                {/* bowl rating */}
                 <div className="form-item">
                     <label className="form-label" htmlFor="rating">Rating</label>
                     <select
@@ -88,6 +94,7 @@ function BowlForm({ setLoaded }) {
                     </select>
                 </div>
 
+                {/* bowl comment */}
                 <div className="form-item">
                     <label className="form-label" htmlFor="comment">Comment</label>
                     <input

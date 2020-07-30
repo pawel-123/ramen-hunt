@@ -17,11 +17,11 @@ function App() {
     }, [loaded]);
 
     const getBowls = () => {
-        // bowls ordered by descending rating
+        // bowls ordered by descending date
         fetch("api/bowl/?ordering=-date_added")
             .then(response => {
                 if (response.status > 400) {
-                    setPlaceholder("Something went wrong!")
+                    setPlaceholder("Something went wrong")
                 }
                 return response.json();
             })
@@ -32,13 +32,15 @@ function App() {
     }
 
     return (
-        <div className="apptest">
+        <div>
             <Header />
+            {/* passing on setLoaded to BowlForm to be able to change it on submission */}
             <BowlForm
                 setLoaded={setLoaded}
             />
             <div className="bowl-list">
                 <h3>Highest rated bowls</h3>
+                {/* maps bowl list data to Bowl component */}
                 {bowls.map(bowl => (
                     <Bowl
                         key={bowl.id}
@@ -46,6 +48,8 @@ function App() {
                         style={bowl.style}
                         comment={bowl.comment}
                         rating={bowl.rating}
+                        date_added={bowl.date_added}
+                        // currently not working - need to find new way to expose this via DRF 
                         username={bowl.author.username}
                     />
                 ))}
