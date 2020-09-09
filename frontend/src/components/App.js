@@ -39,7 +39,7 @@ function App() {
                 setLoaded={setLoaded}
             />
             <div className="bowl-list">
-                <h3>Highest rated bowls</h3>
+                <h3>Your Recent Bowls</h3>
                 {/* maps bowl list data to Bowl component */}
                 {bowls.map(bowl => (
                     <Bowl
